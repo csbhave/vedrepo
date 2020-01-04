@@ -1,6 +1,9 @@
 
 #Download base image ubuntu 16.04
 FROM ubuntu:18.04
-#Download base image apache httpd:2.4
-FROM httpd:2.4
-ADD . /usr/local/apache2/htdocs
+
+#Download base image php 7.4
+FROM php:7.4-cli
+ADD . /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD [ "php", "./index.php" ]
